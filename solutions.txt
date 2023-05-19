@@ -1,0 +1,215 @@
+SOLUTION 1
+function sum(num1, num2, callback) {
+  const result = num1 + num2;
+  callback(result);
+}
+
+function displayResult(result) {
+  console.log("The sum is: " + result);
+}
+
+sum(5, 3, displayResult); // Output: The sum is: 8
+In this exercise, the sum function calculates the sum of two numbers and invokes the callback function, passing the result as an argument. The displayResult function is used as the callback to display the result on the console. When you call the sum function with two numbers and the displayResult function as the callback, it will output the sum of the two numbers.
+
+
+
+
+Solution 2
+
+function getData(url, callback) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => callback(data));
+}
+
+function displayData(data) {
+  console.log(data);
+}
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+getData(apiUrl, displayData);
+In this exercise, the getData function makes a GET request to a specified URL using the fetch API. The response is converted to JSON, and the data is passed to the callback function. The displayData function is used as the callback to log the data to the console. By calling the getData function with a URL and the displayData function, you can fetch data from an API and perform actions on it using the callback function.
+
+
+
+Solution 3:
+
+function performOperation(num1, num2, operation) {
+  switch (operation) {
+    case 'add':
+      return addCallback(num1, num2);
+    case 'subtract':
+      return subtractCallback(num1, num2);
+    case 'multiply':
+      return multiplyCallback(num1, num2);
+    case 'divide':
+      return divideCallback(num1, num2);
+    default:
+      console.log('Invalid operation');
+  }
+}
+
+function addCallback(num1, num2) {
+  return num1 + num2;
+}
+
+function subtractCallback(num1, num2) {
+  return num1 - num2;
+}
+
+function multiplyCallback(num1, num2) {
+  return num1 * num2;
+}
+
+function divideCallback(num1, num2) {
+  return num1 / num2;
+}
+
+// Example usage
+console.log(performOperation(5, 2, 'add'));       // Output: 7
+console.log(performOperation(10, 3, 'subtract')); // Output: 7
+console.log(performOperation(4, 5, 'multiply'));  // Output: 20
+console.log(performOperation(10, 2, 'divide'));   // Output: 5
+console.log(performOperation(10, 2, 'unknown'));  // Output: Invalid operation
+In this exercise, the performOperation function takes two numbers (num1 and num2) and an operation as parameters. Inside the function, a switch statement is used to determine the operation and call the corresponding callback function (addCallback, subtractCallback, multiplyCallback, or divideCallback). Each callback function performs the respective arithmetic operation and returns the result. By calling the performOperation function with different numbers and operations, you can perform various arithmetic operations using the appropriate callback.
+
+
+
+SOLUTION 4
+function sortArray(arr, callback) {
+  arr.sort(callback);
+  return arr;
+}
+
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+const numbers = [5, 2, 8, 1, 9, 3];
+console.log(sortArray(numbers, compareNumbers)); // Output: [1, 2, 3, 5, 8, 9]
+In this exercise, the sortArray function takes an array (arr) and a callback function (callback) as parameters. Inside the function, the sort method is used to sort the array in ascending order, using the callback function for the comparison. The compareNumbers function is provided as the callback function, which compares two numbers and returns the difference between them. By calling the sortArray function with an array and the appropriate callback function, you can sort the array based on the desired comparison logic.
+
+Feel free to modify the example or create your own scenarios to further practice using callbacks in JavaScript.
+
+
+
+Solution 5
+
+function delayedGreeting(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Hello, ${name}!`);
+    }, 2000);
+  });
+}
+
+// Usage:
+delayedGreeting('John')
+  .then((greeting) => {
+    console.log(greeting); // Output: Hello, John! (after 2 seconds)
+  });
+In this exercise, the delayedGreeting function returns a promise that resolves after a 2-second delay using the setTimeout function. The resolved value is a greeting string that includes the provided name.
+
+
+SOLUTION6
+function fetchData(url) {
+  return fetch(url)
+    .then((response) => response.json());
+}
+
+// Usage:
+fetchData('https://api.example.com/data')
+  .then((data) => {
+    console.log(data); // Output: { key: value }
+  });
+In this exercise, the fetchData function uses the fetch API to make an HTTP request to the provided URL. The response is then converted to a JSON object using the json method, and the resulting data is resolved by the promise.
+
+
+SOLUTION 7
+
+function fetchAndProcessData(url) {
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      // Perform data processing
+      const processedData = data.map((item) => item.toUpperCase());
+      return processedData;
+    });
+}
+
+// Usage:
+fetchAndProcessData('https://api.example.com/data')
+  .then((processedData) => {
+    console.log(processedData); // Output: Processed data
+  });
+  
+  
+  
+SOLUTION 8
+  async function delayedGreeting(name) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  return `Hello, ${name}!`;
+}
+
+// Usage:
+async function greet() {
+  const greeting = await delayedGreeting('John');
+  console.log(greeting); // Output: Hello, John! (after 2 seconds)
+}
+
+greet();
+In this exercise, the delayedGreeting function uses async and await to pause the execution for 2 seconds using a setTimeout wrapped in a Promise. After the delay, it returns a greeting message with the provided name.
+
+
+
+
+SOLUTION 9
+async function fetchMultipleURLs(urls) {
+  try {
+    const responses = await Promise.all(urls.map(url => fetch(url)));
+    const data = await Promise.all(responses.map(response => response.json()));
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+// Usage:
+async function fetchData() {
+  const urls = ['https://api.example.com/data1', 'https://api.example.com/data2', 'https://api.example.com/data3'];
+  
+  try {
+    const fetchedData = await fetchMultipleURLs(urls);
+    console.log(fetchedData); // Output: [data1, data2, data3]
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();
+async function fetchMultipleURLs(urls) {
+  try {
+    const responses = await Promise.all(urls.map(url => fetch(url)));
+    const data = await Promise.all(responses.map(response => response.json()));
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+// Usage:
+async function fetchData() {
+  const urls = ['https://api.example.com/data1', 'https://api.example.com/data2', 'https://api.example.com/data3'];
+  
+  try {
+    const fetchedData = await fetchMultipleURLs(urls);
+    console.log(fetchedData); // Output: [data1, data2, data3]
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();
+In this advanced exercise, the fetchMultipleURLs function uses async and await to fetch data from multiple URLs concurrently. It uses Promise.all to wait for all the requests to complete and then processes the responses by extracting the JSON data using response.json(). The function returns an array of the fetched data. Any errors encountered during the fetching process are caught and logged.
