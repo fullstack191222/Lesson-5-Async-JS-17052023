@@ -1,0 +1,95 @@
+EXERCISE 1
+
+Create a function called sum that takes two numbers as parameters.
+
+Inside the sum function, calculate the sum of the two numbers.
+
+Instead of returning the result directly, create a callback function called callback that accepts the result as a parameter.
+
+Call the callback function and pass the result as an argument.
+
+Create a second function called displayResult that accepts a parameter.
+
+Inside the displayResult function, display the result on the console.
+
+Test your code by calling the sum function and passing two numbers as arguments. Pass the displayResult function as the callback.
+
+
+
+EXERCISE 2.
+Create a function called getData that takes a URL and a callback function as parameters.
+
+Inside the getData function, use the fetch API to make a GET request to the provided URL.
+
+Chain the .then() method to the fetch request to handle the response.
+
+In the .then() method, convert the response to JSON using the .json() method.
+
+Chain another .then() method to access the data from the response.
+
+Inside the second .then() method, call the callback function and pass the data as an argument.
+
+Create a callback function called displayData that accepts the data as a parameter.
+
+Inside the displayData function, log the data to the console or perform any desired operations on it.
+
+Test your code by calling the getData function with a URL and the displayData function as the callback.
+
+you can use this url to extract the result from api :
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+
+exercise 3.
+
+Create a function called performOperation that takes two numbers and an operation as parameters: num1, num2, and operation.
+
+Inside the performOperation function, write a switch statement to handle different operations: 'add', 'subtract', 'multiply', and 'divide'.
+
+For each case, define a callback function that performs the respective operation on the two numbers and returns the result.
+
+Create a separate function for each callback operation: addCallback, subtractCallback, multiplyCallback, and divideCallback.
+
+Test your code by calling the performOperation function with different numbers and operations, and pass the appropriate callback function as the operation parameter.
+
+
+
+EXERCISE4 
+Write a function called sortArray that takes an array of numbers as a parameter and a callback function. The sortArray function should sort the array in ascending order using the callback function for the comparison.
+
+The callback function should compare two numbers and return a negative value if the first number is smaller, a positive value if the first number is larger, and zero if the numbers are equal.
+
+
+
+EXERCISE 5
+
+Write a function called delayedGreeting that takes a name as a parameter and returns a promise. The promise should resolve after 2 seconds and greet the person with the provided name.
+try to use it with then and with async await.
+
+
+EXERCISE 6
+Write a function called fetchData that takes a URL as a parameter and returns a promise. The promise should fetch data from the specified URL using the fetch API and resolve with the retrieved data as a JSON object.
+
+
+
+
+
+EXERCISE 7
+Write a function called fetchAndProcessData that takes a URL as a parameter and returns a promise. The promise should fetch data from the specified URL using the fetch API, process the data by converting the data to upper case , and resolve with the processed data. (print the data after all that to console)
+
+add handling of the errors like in the lesson.
+
+
+EXERCISE 8 Delayed Greeting with async/await
+Write an async function called delayedGreeting that takes a name as a parameter and returns a delayed greeting message. The function should wait for 2 seconds before returning the greeting message..
+
+
+EXERCISE 9 Fetching Multiple URLs with async/await (Advanced)
+Write an async function called fetchMultipleURLs that takes an array of URLs as a parameter and fetches the data from each URL concurrently. The function should use Promise.all with await to wait for all the requests to complete and return an array of the fetched data.
+
+("Promise.all is a built-in javascript method that takes an array of promises and returns a new promise. it is commonly used when you have multiple asynchronous operations that you 
+want to run concurrently and wait for all of them to complete.
+
+the promise.all method waits for all the promises in the input array to resolve or reject. if all the promises are resolved, the returned promise will be fulfilled with an array of 
+resolved values in the same order as the input promises. if any of the promises in the input array is rejected, the returned promise will be rejected with the reason of the first 
+rejected promise.")
+
